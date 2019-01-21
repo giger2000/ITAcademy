@@ -5,11 +5,10 @@ public class lletres1 {
 		// TODO Auto-generated method stub
 		
 		//Inicialitzem matriu
-		String[]miArray= {"A","L","B","E","R","T"};
+		String[]myName= {"A","L","B","E","R","T"};
 		
-		
-		for(int i=0;i<miArray.length;i++) {
-			System.out.println("Lletra "+miArray[i]);
+		for(int i=0;i<myName.length;i++) {
+			System.out.println("Lletra "+myName[i]);
 
 		}
 
