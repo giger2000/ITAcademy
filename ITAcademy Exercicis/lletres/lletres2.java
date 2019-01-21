@@ -1,45 +1,41 @@
-import javax.swing.*;
+import java.util.*;
+
 
 /*
- * l'Usuari indica el seu nom i evalua, caracter a caracter, si és número
- * vocal o consonant
+ * l'Usuari indica el seu nom a la llista, i l'algoritme resol
+ * si és VOVAL, CONSONANT o número.
  * */
 public class lletres2 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		//Preguntem nom a usuari
-		String nomUsuari=JOptionPane.showInputDialog("Introduce el nombre de usuario");
+
+
+		 List<Character> nomUsuari = new ArrayList<Character>();
+		 	nomUsuari.add('A');
+		 	nomUsuari.add('L');
+		 	nomUsuari.add('B');
+			nomUsuari.add('E');
+		 	nomUsuari.add('R');
+		 	nomUsuari.add('T');
+		 	
 		
-		//Inicialitzem matriu
-		char miArray[];
-		//Indiquem tamany de la matriu
-		miArray = new char[nomUsuari.length()];
-		
-		//Omplim array amb el nom introduït
-		
-		for (int i=0;i<nomUsuari.length();i++) {
-			miArray[i]=(nomUsuari.charAt(i));
+	
+		for(int i=0;i<nomUsuari.size();i++) {
 			
-		}
-		
-		//System.out.println(miArray);
-		
-		for(int i=0;i<miArray.length;i++) {
-			
-			if (isNumeric(miArray[i])) {
+			if (isNumeric(nomUsuari.get(i))) {
 				
 				
 				System.out.println("Els noms de persona no contenen números. Ets un robot? ");
 				break;
 			}
 			
-			if (isVocal((miArray[i]))) {
-				System.out.println("VOCAL: "+miArray[i]);
+			if (isVocal((nomUsuari.get(i)))) {
+				System.out.println("VOCAL: "+nomUsuari.get(i));
 				
 			}else {
-				System.out.println("CONSONANT: "+miArray[i]);
+				System.out.println("CONSONANT: "+nomUsuari.get(i));
 				
 			}
 			
@@ -69,12 +65,10 @@ public class lletres2 {
 	        boolean resultado;
 
 	        try {
-	           // Integer.parseInt(cadena);
-	        	switch(cadena){
-	        		case 'a':	case 'e':	case 'i':
-	        		case 'o':	case 'u':	case 'A':
-	        		case 'E':	case 'I':	case 'O':
-	        		case 'U':	
+	          
+	        	switch(Character.toUpperCase(cadena)){
+	        		case 'A':	case 'E':	case 'I':
+	        		case 'O':	case 'U':	
 	        			resultado = true;
 	        	break;
 	        	
