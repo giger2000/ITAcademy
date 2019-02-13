@@ -4,28 +4,62 @@ import java.util.*;
 
 public class CarMain {
 
+	static Scanner entrada=new Scanner(System.in);
 	
+
 
 	public static void main(String[] args) throws Exception {
 		
-		//Introducció de dades
-		Scanner entrada=new Scanner(System.in);
+	
+		//Array per les rodes que introdueix l'usuari
+		List<Wheel> listWheelRearCar = new ArrayList<>();
+		List<Wheel> listWheelFrontCar = new ArrayList<>();
+		//Introducció de dades cotxe
+		Car myCar=introDataCar();
+		//Intro dades Rear Wheels
+		Wheel myWheelRL=introRearLeftWheels();
+		listWheelRearCar.add(myWheelRL);
+		Wheel myWheelRR=introRearRightWheels();
+		listWheelRearCar.add(myWheelRR);
+		
+		//Intro dades Front Wheels
+		Wheel myWheelFL=introFrontLeftWheels();
+		listWheelFrontCar.add(myWheelFL);
+		Wheel myWheelFR=introFrontRightWheels();
+		listWheelFrontCar.add(myWheelFR);
+		
+		//Afegim rodes al cotxe
+		myCar.addWheels(listWheelFrontCar, listWheelRearCar);
+
+
+		//Mostrem informació
+		System.out.println("Matricula: "+myCar.getPlate()+
+				" Marca: "+ myCar.getBrand()+
+				" Color: "+ myCar.getColor()+" Rodes: "+myCar.getWheels().toString());
+
+		
+	}
+
+	public static Car introDataCar() {
+		
 
 		System.out.println("Matrícula: ");
 		String plate = entrada.next();
 		
 		System.out.println("Marca del vehicle: ");
 		String brand = entrada.next();
-		System.out.println("Color: ");
+		System.out.println("Color: ");  
 		String color = entrada.next();
 		
-		Car myCar= new Car(plate,brand,color);
+		return new Car(plate,brand,color);
 		
-		//Rodes Traseres
 		
-		List<Wheel> listWheelRearCar = new ArrayList<>();
-		List<Wheel> listWheelFrontCar = new ArrayList<>();
-
+		
+	}
+	
+	public static Wheel introRearLeftWheels() {
+		
+		
 		System.out.println("Marca roda esquerra trasera: ");
 		
 		String wheelBrand=entrada.next();
@@ -34,62 +68,60 @@ public class CarMain {
 
 		String wheelDiameter=entrada.next();
 		
-		Wheel myWheel= new Wheel (wheelBrand,Double.parseDouble(wheelDiameter));
+		return new Wheel (wheelBrand,Double.parseDouble(wheelDiameter)); 
+	
 		
-		listWheelRearCar.add(myWheel);
+	}
+	
+public static Wheel introRearRightWheels() {
+		
 		
 		System.out.println("Marca roda dreta trasera: ");
 		
-		wheelBrand=entrada.next();
+		String wheelBrand=entrada.next();
 		
 		System.out.println("Diametre roda dreta trasera: ");
 
-		wheelDiameter=entrada.next();
+		String wheelDiameter=entrada.next();
 		
-		myWheel= new Wheel (wheelBrand,Double.parseDouble(wheelDiameter));
+		return new Wheel (wheelBrand,Double.parseDouble(wheelDiameter)); 
+	
 		
-		listWheelRearCar.add(myWheel);
+	}
+	public static Wheel introFrontLeftWheels() {
 		
-		//Rodes Davanteres
 		
 		System.out.println("Marca roda esquerra davantera: ");
 		
-		wheelBrand=entrada.next();
+		String wheelBrand=entrada.next();
 		
 		System.out.println("Diametre roda esquerra davantera: ");
 
-		wheelDiameter=entrada.next();
+		String wheelDiameter=entrada.next();
 		
-		myWheel= new Wheel (wheelBrand,Double.parseDouble(wheelDiameter));
+		return new Wheel (wheelBrand,Double.parseDouble(wheelDiameter));
+					
 		
-		listWheelFrontCar.add(myWheel);
+	}
+	
+public static Wheel introFrontRightWheels() {
 		
-		System.out.println("Marca roda dreta davanterea: ");
 		
-		wheelBrand=entrada.next();
+		System.out.println("Marca roda dreta davantera: ");
+		
+		String wheelBrand=entrada.next();
 		
 		System.out.println("Diametre roda dreta davantera: ");
 
-		wheelDiameter=entrada.next();
+		String wheelDiameter=entrada.next();
 		
-		myWheel= new Wheel (wheelBrand,Double.parseDouble(wheelDiameter));
-		
-		listWheelFrontCar.add(myWheel);
-	
-		
-		myCar.addWheels(listWheelFrontCar, listWheelRearCar);
-		
-		
-		
-	
-	
-
-		
-		System.out.println("Matricula: "+myCar.getPlate()+
-				" Marca: "+ myCar.getBrand()+
-				" Color: "+ myCar.getColor()+" Rodes: "+myCar.getWheels().toString());
+		return new Wheel (wheelBrand,Double.parseDouble(wheelDiameter));
+					
 		
 	}
+
+
+
 
 
 }
